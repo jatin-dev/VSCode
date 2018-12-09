@@ -2,7 +2,8 @@ using System;
 using System.Net;  
 using System.Net.Sockets;  
 using System.Text;  
-using System.Threading;  
+using System.Threading; 
+using PubSub; 
 namespace VSCode
 {
 // State object for reading client data asynchronously  
@@ -107,6 +108,7 @@ Console.WriteLine("Waiting for a connection2...");
             // more data.  
             content = state.sb.ToString();  
             if (content.IndexOf("<EOF>") > -1) {  
+             PubSubConnector.PublishToTopic(content);
                 // All the data has been read from the   
                 // client. Display it on the console.  
                 Console.WriteLine("Read {0} bytes from socket. \n Data : {1}",  

@@ -1,6 +1,7 @@
 FROM microsoft/dotnet:2.1-sdk
 WORKDIR /app
 
+ENV GOOGLE_APPLICATION_CREDENTIALS=google-cloud-credentials.json
 # copy csproj and restore as distinct layers
 COPY *.csproj ./
 RUN dotnet restore
