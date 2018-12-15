@@ -8,7 +8,7 @@ namespace PubSub
 {
 	public class PubSubConnector
 	{
-		private const string ProjectId = "engaged-hook-210212";
+		private const string ProjectId = "projectcloudlearning";
 		private const string TopicId = "PubTradeSub";
 		private const string SubscriptionId = "pull";
 
@@ -65,6 +65,7 @@ Console.WriteLine("Inside PublishToTopic..." +ProjectId +TopicId);
 				Data = ByteString.CopyFromUtf8(trade)
 			};
 			message.Attributes.Add("myattrib", "its value");
+
 
 			// Add it to the list of messages to publish
 			var messageList = new List<PubsubMessage>() { message };
